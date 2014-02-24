@@ -10,7 +10,6 @@ use Scalar::Util qw( blessed );
 our $AUTHORITY = 'cpan:TOBYINK';
 our $VERSION   = '0.000_01';
 our @EXPORT    = qw( $_call_if_object $_isa $_can $_does $_DOES );
-our @ISA       = qw( Exporter );
 
 __PACKAGE__->load($VERSION);
 

@@ -8,7 +8,7 @@ use base qw( XSLoader Exporter );
 use Scalar::Util qw( blessed );
 
 our $AUTHORITY = 'cpan:TOBYINK';
-our $VERSION   = '0.000_01';
+our $VERSION   = '0.000_02';
 our @EXPORT    = qw( $_call_if_object $_isa $_can $_does $_DOES );
 
 __PACKAGE__->load($VERSION);

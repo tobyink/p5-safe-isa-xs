@@ -4,3 +4,8 @@
 	issued  2014-02-24;
 	label   "Preview".
 
+`Safe-Isa-XS 0.000_02 cpan:TOBYINK`
+	issued  2014-02-25;
+	changeset [
+		item "Various XS improvements which may lead to a very slight speed-up."^^Change;
+	].

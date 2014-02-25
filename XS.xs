@@ -6,7 +6,7 @@
 
 #include "const-c.inc"
 
-int _mycall (char* methodname, SV* args[], int argc, int gimme)
+int _mycall (char* methodname, SV* args[], int argc)
 {
 	int i;
 	int result_count;
@@ -29,7 +29,7 @@ int _mycall (char* methodname, SV* args[], int argc, int gimme)
 	PUTBACK;
 	
 	// Call method
-	result_count = call_method(methodname, gimme);
+	result_count = call_method(methodname, GIMME_V);
 	SPAGAIN;
 	
 	// Unpack return results
@@ -66,7 +66,7 @@ PPCODE:
 	for (i = 0; i < items; i++) {
 		args[i] = ST(i);
 	}
-	XSRETURN( _mycall("isa", args, items, GIMME_V) );
+	XSRETURN( _mycall("isa", args, items) );
 }
 
 void
@@ -79,7 +79,7 @@ PPCODE:
 	for (i = 0; i < items; i++) {
 		args[i] = ST(i);
 	}
-	XSRETURN( _mycall("can", args, items, GIMME_V) );
+	XSRETURN( _mycall("can", args, items) );
 }
 
 void
@@ -92,7 +92,7 @@ PPCODE:
 	for (i = 0; i < items; i++) {
 		args[i] = ST(i);
 	}
-	XSRETURN( _mycall("does", args, items, GIMME_V) );
+	XSRETURN( _mycall("does", args, items) );
 }
 
 void
@@ -105,5 +105,5 @@ PPCODE:
 	for (i = 0; i < items; i++) {
 		args[i] = ST(i);
 	}
-	XSRETURN( _mycall("DOES", args, items, GIMME_V) );
+	XSRETURN( _mycall("DOES", args, items) );
 }

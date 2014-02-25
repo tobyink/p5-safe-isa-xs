@@ -11,13 +11,13 @@ int _mycall (char* methodname, SV* args[], int argc)
 	int i;
 	int result_count;
 	
-	dSP;
-	SP -= argc;
-	
 	if (! sv_isobject(args[0]))
 	{
 		return 0;
 	}
+	
+	dSP;
+	SP -= argc;
 	
 	// Prepare to call method
 	ENTER;

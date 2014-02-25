@@ -12,6 +12,7 @@ int _mycall (char* methodname, SV* args[], int argc)
 	int result_count;
 	
 	dSP;
+	SP -= argc;
 	
 	if (! sv_isobject(args[0]))
 	{
@@ -34,7 +35,7 @@ int _mycall (char* methodname, SV* args[], int argc)
 	
 	// Unpack return results
 	SV* ret[result_count];
-	for (i=0; i<result_count+argc; i++)
+	for (i=0; i<result_count; i++)
 	{
 		ret[i] = POPs;
 	}
